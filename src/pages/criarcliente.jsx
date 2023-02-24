@@ -7,17 +7,21 @@ import Form from "react-bootstrap/Form";
 const CriarCliente = () => {
   //const [id_ecoponto, setText] = useState(""); //criar comentario, temos de colocar o autor e conteudo
 
-  const [morada, setmorada] = useState("");
-  const [tipo_industria, settipo_industria] = useState("");
-  const [nome_industria, setnome_industria] = useState("");
+  const [nome_utilizador, setnome_utilizador] = useState("");
+  const [telefone, settelefone] = useState("");
+  const [telemovel, settelemovel] = useState("");
+  const [email, setemail] = useState("");
+  const [nif, setnif] = useState("");
 
   const addIndustria = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8080/api/empresa_dona_ecopontos/create", {
-        morada,
-        tipo_industria,
-        nome_industria,
+      .post("http://localhost:8080/api/user/create", {
+        nome_utilizador,
+        telefone,
+        telemovel,
+        email,
+        nif,
       })
       .then((response) => {
         alert("Indústria adicionada com sucesso");
@@ -26,57 +30,83 @@ const CriarCliente = () => {
 
   return (
     <Form>
-      <h1 className="display-6 fw-bold">Criar Indústria</h1>
+      <h1 className="display-6 fw-bold">Criar Cliente</h1>
       <br />
 
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
         <Form.Label column sm={2} xl={4}>
-          Nome Industria
+          Nome Completo do cliente
         </Form.Label>
         <Col sm={10} xl={8}>
           <Form.Control
             type="text"
-            placeholder="Nome Industria"
+            placeholder="Nome "
             onChange={(event) => {
-              setnome_industria(event.target.value);
+              setnome_utilizador(event.target.value);
             }}
           />
         </Col>
       </Form.Group>
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
         <Form.Label column sm={2} xl={4}>
-          Morada
+          Telefone
         </Form.Label>
         <Col sm={10} xl={8}>
           <Form.Control
             type="text"
-            placeholder="Morada"
+            placeholder="telemovel"
             onChange={(event) => {
-              setmorada(event.target.value);
+              settelefone(event.target.value);
             }}
           />
         </Col>
       </Form.Group>
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
         <Form.Label column sm={2} xl={4}>
-          Tipo Eletrodomésticos
+          Telemovel
         </Form.Label>
         <Col sm={10} xl={8}>
           <Form.Control
             type="text"
-            placeholder="Tipo Eletrodomésticos"
+            placeholder="telemovel"
             onChange={(event) => {
-              settipo_industria(event.target.value);
+              settelemovel(event.target.value);
+            }}
+          />
+        </Col>
+      </Form.Group>
+      <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+        <Form.Label column sm={2} xl={4}>
+          Email
+        </Form.Label>
+        <Col sm={10} xl={8}>
+          <Form.Control
+            type="text"
+            placeholder="Email"
+            onChange={(event) => {
+              setemail(event.target.value);
+            }}
+          />
+        </Col>
+      </Form.Group>
+      <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+        <Form.Label column sm={2} xl={4}>
+          NIF
+        </Form.Label>
+        <Col sm={10} xl={8}>
+          <Form.Control
+            type="text"
+            placeholder="nif"
+            onChange={(event) => {
+              setnif(event.target.value);
             }}
           />
         </Col>
       </Form.Group>
       <br />
-      <br />
-      <br />
+
       <Form.Group as={Row} className="mb-3">
         <Col sm={{ span: 10, offset: 2 }}>
-          <br />
           <br />
           <button
             class="btn btn-primary"

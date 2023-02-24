@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 const Navbar1 = ({ auth }) => {
@@ -13,48 +12,51 @@ const Navbar1 = ({ auth }) => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" className="w-100">
-        <Container>
-          <Navbar.Brand href="#home">Chip7</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
+      <Navbar
+        bg="light"
+        variant="light"
+        className="w-100"
+        style={{ margin: 0, borderRadius: "white" }}
+      >
+        <Container style={{ margin: 0 }}>
+          <Navbar.Brand href="#home" className="mx-auto">
+            Chip7
+          </Navbar.Brand>
+
+          <div className="links ml-auto" style={{ padding: 15 }}>
+            {!userLogged && (
+              <Link
+                to="/login"
+                style={{
+                  color: "white",
+                  backgroundColor: "#212529",
+                  borderRadius: "8px",
+                }}
+              >
+                Login
+              </Link>
+            )}
+
+            {userLogged && (
+              <Link
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  setUserLogged(null);
+                  navigate("/");
+                }}
+                style={{
+                  color: "white",
+                  backgroundColor: "#212529",
+                  borderRadius: "0px",
+                }}
+              >
+                Logout
+              </Link>
+            )}
+          </div>
         </Container>
-
-        <div className="links">
-          {!userLogged && (
-            <Link
-              to="/login"
-              style={{
-                color: "white",
-                backgroundColor: "#2F4F4F",
-                borderRadius: "8px",
-              }}
-            >
-              Login
-            </Link>
-          )}
-
-          {userLogged && (
-            <button
-              onClick={() => {
-                localStorage.removeItem("token");
-                setUserLogged(null);
-                navigate("/");
-              }}
-              style={{
-                color: "white",
-                backgroundColor: "#2F4F4F",
-                borderRadius: "8px",
-              }}
-            >
-              Logout
-            </button>
-          )}
-        </div>
       </Navbar>
+
       <br />
     </>
   );

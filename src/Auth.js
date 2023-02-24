@@ -3,7 +3,6 @@ import jwt from "jwt-decode";
 export const ROLES = {
   ADMIN: "ADMIN",
   COMPANY: "COMPANY",
-  INDUSTRY: "INDUSTRY",
 };
 
 export const getTokenInfo = (tokenAux = null) => {
@@ -33,10 +32,6 @@ export const getTokenInfo = (tokenAux = null) => {
 
   if (payload.data.utilizador_empresa !== null) {
     payload.data.role = ROLES.COMPANY;
-  }
-
-  if (payload.data.utilizador_gestor_industria !== null) {
-    payload.data.role = ROLES.INDUSTRY;
   }
 
   return payload.data;

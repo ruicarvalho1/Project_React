@@ -7,19 +7,16 @@
 }
 
 .navbar {
-  padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-  border-bottom: 1px solid #050d55;
+  border-bottom: 1px solid #ffffff;
 }
 
 .navbar h1 {
-  padding: 10px;
+  padding: 500px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+
   margin: 0 auto;
   border-bottom: 1px solid #051763;
   color: #04105f;
@@ -54,7 +51,7 @@
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
 .blog-preview h2 {
-  font-size: 20px;
+  font-size: 100px;
   color: #040941;
   margin-bottom: 8px;
 }
@@ -73,40 +70,6 @@
 }
 .blog-details button {
   background: #030b63;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* create new blog form */
-.create {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-}
-.create label {
-  text-align: left;
-  display: block;
-}
-.create h2 {
-  font-size: 20px;
-  color: #070e61;
-  margin-bottom: 30px;
-}
-.create input,
-.create textarea,
-.create select {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  display: block;
-}
-.create button {
-  background: #050c5a;
   color: #fff;
   border: 0;
   padding: 8px;

@@ -4,12 +4,12 @@ import Home from "./pages/Home"; //Import do home
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Login from "./login";
-import CriarIndustria from "./pages/criarIndustria";
-import DadosIndustria from "./pages/DadosIndustria";
+import VisualizarCliente from "./pages/visualizarciente";
 import MySideNav from "./MySideNav";
 import { getTokenInfo } from "./Auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import CriarCliente from "./pages/criarcliente";
 
 function App() {
   const [userLogged, setUserLogged] = useState(null);
@@ -39,13 +39,15 @@ function App() {
             <Route path="*" element={<NotFound />}></Route>
 
             <Route
-              path="/criarIndustria"
-              element={<CriarIndustria auth={{ userLogged, setUserLogged }} />}
+              path="/criarcliente"
+              element={<CriarCliente auth={{ userLogged, setUserLogged }} />}
             />
 
             <Route
-              path="/dadosIndustria"
-              element={<DadosIndustria auth={{ userLogged, setUserLogged }} />}
+              path="/visualizarcliente"
+              element={
+                <VisualizarCliente auth={{ userLogged, setUserLogged }} />
+              }
             />
           </Routes>
         </div>
