@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@100;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@100;400;500;600;700&display=swap%22");
 
 /* base styles */
 * {
@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ffffff;
+  justify-content: flex-end !important;
 }
 
 .navbar h1 {
@@ -30,7 +31,7 @@
   padding: 6px;
 }
 .navbar a:hover {
-  color: #040a4a;
+  color: #0b0b0b;
 }
 .content {
   display: flex;
@@ -41,7 +42,7 @@
   padding-left: 64px;
 }
 
-/* blog previews / list */
+/* blog previews / list /
 .blog-preview {
   padding: 10px 16px;
   margin: 20px 0;
@@ -59,7 +60,7 @@
   text-decoration: none;
 }
 
-/* blog details page */
+/ blog details page */
 .blog-details h2 {
   font-size: 20px;
   color: #050c5b;

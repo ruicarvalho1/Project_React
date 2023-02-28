@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Login from "./login";
 import VisualizarCliente from "./pages/visualizarciente";
+import VisualizarCliente1 from "./pages/visualizarcliente1";
 import MySideNav from "./MySideNav";
 import { getTokenInfo } from "./Auth";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -47,6 +48,12 @@ function App() {
               path="/visualizarcliente"
               element={
                 <VisualizarCliente auth={{ userLogged, setUserLogged }} />
+              }
+            />
+            <Route
+              path="/visualizarcliente1"
+              element={
+                <VisualizarCliente1 auth={{ userLogged, setUserLogged }} />
               }
             />
           </Routes>

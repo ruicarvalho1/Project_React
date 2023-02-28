@@ -6,27 +6,35 @@ import { ROLES } from "./Auth";
 
 const routes = {
   home: (
-    <NavItem eventKey="">
+    <NavItem eventKey="" style={{ color: "White" }}>
       <NavIcon>
         <i className="fa fa-fw fa-home" style={{ fontize: "1.5em" }}></i>
       </NavIcon>
-      <NavText>Home</NavText>
+      <NavText style={{ color: "white" }}>Home</NavText>
     </NavItem>
   ),
   criarcliente: (
-    <NavItem eventKey="criarcliente">
-      <NavIcon>
+    <NavItem eventKey="criarcliente" style={{ color: "White" }}>
+      <NavIcon style={{ color: "White" }}>
         <i className="fa-solid fa-users-gear" style={{ fontize: "1.5em" }}></i>
       </NavIcon>
-      <NavText>Criar dados cliente</NavText>
+      <NavText style={{ color: "White" }}>Criar dados cliente</NavText>
     </NavItem>
   ),
   visulizarcliente: (
-    <NavItem eventKey="visualizarcliente">
-      <NavIcon>
+    <NavItem eventKey="visualizarcliente" style={{ color: "White" }}>
+      <NavIcon style={{ color: "White" }}>
         <i className="fa-solid fa-eye" style={{ fontize: "1.5em" }}></i>
       </NavIcon>
-      <NavText>Visualizar os dados do cliente</NavText>
+      <NavText style={{ color: "White" }}>Visualizar cliente</NavText>
+    </NavItem>
+  ),
+  visulizarcliente1: (
+    <NavItem eventKey="visualizarcliente1" style={{ color: "White" }}>
+      <NavIcon style={{ color: "White" }}>
+        <i className="fa-solid fa-eye" style={{ fontize: "1.5em" }}></i>
+      </NavIcon>
+      <NavText style={{ color: "White" }}>Visualizar cliente</NavText>
     </NavItem>
   ),
 };
@@ -54,7 +62,8 @@ const MySideNav = ({ auth }) => {
         {routes.home}
         {hasPermissions([ADMIN]) && routes.criarcliente}
         {hasPermissions([ADMIN]) && routes.visulizarcliente}
-        {hasPermissions([COMPANY]) && routes.alteracaoDadosEcopontos}
+        {hasPermissions([COMPANY]) && routes.criarcliente}
+        {hasPermissions([COMPANY]) && routes.visulizarcliente1}
       </SideNav.Nav>
     </SideNav>
   );

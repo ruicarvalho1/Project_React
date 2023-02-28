@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-
 import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
 
 const Navbar1 = ({ auth }) => {
   const { userLogged, setUserLogged } = auth;
@@ -13,45 +13,37 @@ const Navbar1 = ({ auth }) => {
   return (
     <>
       <Navbar
-        bg="light"
-        variant="light"
+        bg="white"
+        variant="white"
         className="w-100"
         style={{ margin: 0, borderRadius: "white" }}
       >
         <Container style={{ margin: 0 }}>
           <Navbar.Brand href="#home" className="mx-auto">
-            Chip7
+            CHIP7
           </Navbar.Brand>
 
-          <div className="links ml-auto" style={{ padding: 15 }}>
+          <div
+            className="links ml-auto"
+            style={{ padding: 0, marginLeft: 0, marginRight: 0 }}
+          >
             {!userLogged && (
-              <Link
-                to="/login"
-                style={{
-                  color: "white",
-                  backgroundColor: "#212529",
-                  borderRadius: "8px",
-                }}
-              >
-                Login
+              <Link to="/login">
+                <Button variant="outline-secondary">Login</Button>
               </Link>
             )}
 
             {userLogged && (
-              <Link
+              <Button
                 onClick={() => {
                   localStorage.removeItem("token");
                   setUserLogged(null);
                   navigate("/");
                 }}
-                style={{
-                  color: "white",
-                  backgroundColor: "#212529",
-                  borderRadius: "0px",
-                }}
+                variant="outline-secondary"
               >
                 Logout
-              </Link>
+              </Button>
             )}
           </div>
         </Container>

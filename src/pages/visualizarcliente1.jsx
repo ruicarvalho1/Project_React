@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 import { Modal, Button, Form } from "react-bootstrap";
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { AiFillEdit } from "react-icons/ai";
 
 const VisualizarDadosCliente = () => {
   const [data, setData] = useState(null);
@@ -49,16 +49,6 @@ const VisualizarDadosCliente = () => {
     setData(null);
   };
 
-  const handleDelete = async (id_utilizador) => {
-    const confirmDelete = window.confirm("Deseja excluir este cliente?");
-    if (confirmDelete) {
-      await axios.delete(
-        `http://localhost:8080/api/cliente/delete/${id_utilizador}`
-      );
-      setData(null);
-    }
-  };
-
   // !(null | undefined | [] | '' ) -> true
 
   if (!data) {
@@ -100,13 +90,6 @@ const VisualizarDadosCliente = () => {
                   style={{ marginRight: 10 }}
                 >
                   <AiFillEdit />
-                </button>
-
-                <button
-                  onClick={() => handleDelete(item.id_utilizador)}
-                  cursor="pointer"
-                >
-                  <AiFillDelete />
                 </button>
               </td>
             </tr>
